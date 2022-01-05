@@ -1,0 +1,79 @@
+import './App.css';
+import React, { useState, useLayoutEffect } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+import Home from './screens/Home';
+import UnderOrAboveAge from './component/UnderOrAboveAge';
+import ShopState from './context/shops/ShopState';
+import Navbar from './component/Navbar';
+import SignUp from './component/SignUp';
+import Login from './component/Login';
+import Products from './screens/Products';
+import Footer from './component/Footer';
+import Alert from './component/Alert';
+import UploadProduct from './screens/UploadProduct';
+import Testing from './screens/Testing';
+import AddtoCart from './screens/AddtoCart';
+import ProductDetails from './screens/ProductDetails';
+import Cart from './screens/Cart';
+
+
+function App() {
+  const [alert, setAlert] = useState(null)
+
+  const showAlret = (message, type) => {
+    setAlert({
+      msg: message,
+      type: type,
+    })
+    setTimeout(() => {
+      setAlert(null);
+    }, 1500)
+  }
+
+  return (
+    <>
+      <ShopState>
+        <Router>
+          <Navbar />
+          <Alert alert={alert} />
+          <Switch>
+            <Route exact path="/">
+              <UnderOrAboveAge showAlret={showAlret} />
+            </Route>
+            <Route exact path="/home">
+              <Home />
+            </Route>
+            <Route exact path="/uploadproduct">
+              <UploadProduct />
+            </Route>
+            <Route exact path="/signup">
+              <SignUp />
+            </Route>
+            <Route exact path="/login">
+              <Login />
+            </Route>
+            <Route exact path="/:id/:qty/:price">
+           <Cart/>
+             </Route>
+            <Route exact path="/products/:shopName">
+              <Products />
+            </Route>
+            <Route exact path="/:id">
+             <Testing showAlret={showAlret} />
+            </Route>
+            <Route exact path="/checkout">
+              <SignUp />
+            </Route>
+          </Switch>
+          <Footer />
+        </Router>
+      </ShopState>
+    </>
+  );
+}
+
+export default App;
