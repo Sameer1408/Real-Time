@@ -22,6 +22,7 @@ function UnderOrAboveAge(props) {
           hasInputAge();
           getUser();
           history.push("/home");
+          window.location.reload();
         }
         else{
             props.showAlret("sorry you are not eligible to access this website",'warning')
