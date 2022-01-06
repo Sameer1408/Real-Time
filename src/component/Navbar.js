@@ -122,13 +122,17 @@ function Navbar(props) {
             <i class="far fa-comment-dots navsContactIcon"></i>
             <p className="navsContactText">Contact Us</p>
           </div>
-
-          <Link  onClick={handleLogOut}> 
+          {
+              localStorage.getItem('token')? <Link  onClick={handleLogOut}> 
            <div className="navsLogout">
             <i class="fas fa-sign-out-alt navsLogoutIcon"></i>
             <p className="navsLogoutText">Logout</p>
           </div>
           </Link> 
+          :null
+
+          }
+         
         
         </div>
       </div>

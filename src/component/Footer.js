@@ -1,4 +1,9 @@
 import React from 'react'
+import visa from '../images/visa.png'
+import maestro from '../images/maestro.png'
+import rupay from '../images/Rupay.png'
+import masterCard from '../images/masterCard.png'
+import upi from '../images/upi.png'
 
 function Footer() {
     const date = new Date().getFullYear()
@@ -28,6 +33,13 @@ function Footer() {
                             <p className="FooterPara">Privacy Policy </p>
                         </div>
                     </div>
+                </div>
+                <div className="text-center">
+                    <img className="visa" src={visa}></img>
+                    <img className="maestro"  src={maestro}></img>
+                    <img  className="masterCard" src={masterCard}></img>
+                    <img   className="rupay" src={rupay}></img>
+                    <img className="upi" src={upi}></img>
                 </div>
                 <hr style={{ width: "80%" }} />
                 <div class="container">

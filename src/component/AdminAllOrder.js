@@ -36,32 +36,22 @@ function AdminAllOrder(props) {
 
 
   return (
-    <div>
+    <div className="ordersShopSideDiv">
       <div class="container">
-        <div class="row">
-          <div class="col-sm">
-            {props.order.shop}
-          </div>
-          <div class="col-sm">
-            {props.order.name.firstName} {props.order.name.lastName}
-          </div>
-          <div class="col-sm">
-            {props.order.email}
-          </div>
-          <div class="col-sm">
-            {props.order.totalAmount}
-          </div>
-          <div class="col-sm">
-            {props.order.shippingInfo.phoneNo}
-          </div>
-          <div class="col-sm">
-            {props.order.shippingInfo.address}
-          </div>
-          {/* <div class="col-sm">
-            {props.order.shippingInfo.pinCode}
-          </div> */}
-        </div>
-        <form style={{ position: "relative", top: "20px", zIndex: 2 }}>
+     {props.order.orderItems.cart.cartItems.map((e)=>{
+      return<>
+        <img className="ordersShopSideDivImage" src={e.image}></img>
+         <p  className="ordersShopSideDivProductName">{e.name}</p>       
+     ,
+      </>
+     })
+
+     }
+     <p className="ordersShopSideDivName">Name - {props.order.name.firstName} </p>
+       
+       <p className="ordersShopSideDivPrice">Price -  {props.order.totalAmount}</p>
+        
+        <form className="ordersShopSideDivStatus">
           <div class="form-group">
             {/* <label for="exampleFormControlSelect1">Example select</label> */}
             <select class="form-control" id="exampleFormControlSelect1" value={status} onChange={onChangeStatus}>

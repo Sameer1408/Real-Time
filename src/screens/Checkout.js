@@ -8,6 +8,7 @@ function Checkout() {
   
   useLayoutEffect(() => {
     getUser();
+    window.scrollTo(0, 0)
   }, []);
 
   const [person, setPerson] = useState({})
@@ -47,6 +48,7 @@ function Checkout() {
    const [razorpaySignature,setRazorpaySignature] = useState('');
 
   const handleSubmit = async () => {
+    if(address!='' && city!='' && phoneNo!='' ){
     const amount = cartItems.reduce((acc, item) => acc + (Number(item.quantity) * Number(item.price)), 0)
     const response = await fetch(`https://salty-inlet-39033.herokuapp.com/api/cart/order/${amount}`, {
       method: 'GET',
@@ -108,7 +110,7 @@ function Checkout() {
           alert(response.error.metadata.order_id);
           alert(response.error.metadata.payment_id);
 
-  });
+  });}
  
   }
 
@@ -230,7 +232,7 @@ function Checkout() {
           </form>
           </div>
           
-          <div className="col-lg-4 " >
+          <div className="col-lg-4 checkoutShowProducts" >
            <hr/>
             <h4 style={{ color: "grey", display: "inline-block" }}>Cart Items</h4>
             <button className="btn btn-dark" style={{ display: "inline-block", float: "right" }}>{cartItems.reduce((acc, item) => acc + Number(item.quantity), 0)}</button>
