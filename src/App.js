@@ -64,13 +64,13 @@ function App() {
               <Home />
             </Route>
             <Route exact path="/orderStatus/:status">
-            <OrderStatus/>
+              <OrderStatus />
             </Route>
             <Route exact path="/ordersshopchunabhatti">
-            <OdersShop/>
+              <OdersShop />
             </Route>
             <Route exact path="/ordersshopmanisha">
-            <OrdersShopManisha/>
+              <OrdersShopManisha />
             </Route>
             <Route exact path="/admin">
               <AdminPage />
@@ -85,7 +85,7 @@ function App() {
               <Profile />
             </Route>
             <Route exact path="/checkout">
-              <Checkout />
+              <Checkout showAlret={showAlret} />
             </Route>
             <Route exact path="/shipping">
               <ShippingScreen />
@@ -109,7 +109,7 @@ function App() {
               <SignUp />
             </Route>
             <Route exact path="/login">
-              <Login  showAlret={showAlret} />
+              <Login showAlret={showAlret} />
             </Route>
             <Route exact path="/:id/:qty/:price">
               <Cart />

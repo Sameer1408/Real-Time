@@ -4,7 +4,7 @@ import CheckoutCartItems from '../component/CheckoutCartItems';
 import { useHistory } from 'react-router';
 
 
-function Checkout() {
+function Checkout(props) {
   
   useLayoutEffect(() => {
     getUser();
@@ -111,6 +111,9 @@ function Checkout() {
           alert(response.error.metadata.payment_id);
 
   });}
+  else{
+    props.showAlret('please fill the all fields','warning')
+  }
  
   }
 
