@@ -16,6 +16,8 @@ function ShopsWithProduct() {
     const [shop, setShop] = useState('')
     const [latitude, setLatitude] = useState('');
     const [longitude, setLongitude] = useState('')
+    const [category, setCategory] = useState('All Product')
+
 
     const AllDistances = [];
 
@@ -82,6 +84,20 @@ function ShopsWithProduct() {
   
     let { loading, error, products } = productList;
 
+
+        
+    const filterItem = (cate) => {
+        if (cate !== '') {
+            setCategory(cate)
+        }
+        else if (cate === '') {
+            setCategory("All Product")
+        }
+        dispatch(FilterProductList(cate, shop))
+    }
+
+
+
     useEffect(() => {
         getShop();
         window.scrollTo(0, 0)
@@ -95,6 +111,17 @@ function ShopsWithProduct() {
                     <button class="btn  my-2 my-sm-0 searchBtn"><i class="fas fa-search"></i></button>.
                 </div>
             </div>
+            <div style={{overflow:'hidden'}}>
+            <div className='wrapper'>
+                            <div className="item"><button className="categoryButton btn btn-outline-dark" onClick={() => filterItem('')}>All</button></div>
+                                <div className="item"> <button className="categoryButton btn btn-outline-dark" onClick={() => filterItem('Rum')}>Rum</button></div>
+                                <div className="item"> <button className="categoryButton btn btn-outline-dark" onClick={() => filterItem('Beer')}>Beer</button></div>
+                                <div className="item"> <button className="categoryButton btn btn-outline-dark" onClick={() => filterItem('')}>All</button></div>
+                                <div className="item"> <button className="categoryButton btn btn-outline-dark" onClick={() => filterItem('Beer')}>Beer</button></div>
+                                <div className="item">  <button className="categoryButton btn btn-outline-dark" onClick={() => filterItem('Rum')}>Rum</button></div>
+                            </div>
+            </div>     
+
             {
                 loading ? <h1>Product Loading</h1> :
                     <>

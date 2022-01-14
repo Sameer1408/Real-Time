@@ -22,8 +22,8 @@ function Products(props) {
     }, [])
 
     let { loading, error, products } = productList;
-
-  
+    
+    
     const filterItem = (cate) => {
         if (cate !== '') {
             setCategory(cate)
