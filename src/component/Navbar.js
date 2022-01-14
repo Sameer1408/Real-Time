@@ -94,8 +94,8 @@ function Navbar(props) {
         </ul>
       </nav>
       <div className="Pop" style={{ display: `${pop}` }}>
-      <p className="navsHelloName">Hello {name} !</p>
-      <p onClick={closePop} className=""><i class="fas fa-times cross"></i></p>
+        <p className="navsHelloName">Hello {name} !</p>
+        <p onClick={closePop} className=""><i class="fas fa-times cross"></i></p>
         <div className="allNavs">
           {localStorage.getItem('token')
             ?
@@ -111,29 +111,24 @@ function Navbar(props) {
                 <p className="navsProfileText">Profile</p>
               </div></Link>
           }
-
           <Link to="/home" onClick={closePop}>
             <div className="navsHome">
               <i class="fas fa-store navsHomeIcon"></i>
               <p className="navsHomeText">Shops</p></div>
           </Link>
-
           <div className="navsContact">
             <i class="far fa-comment-dots navsContactIcon"></i>
             <p className="navsContactText">Contact Us</p>
           </div>
           {
-              localStorage.getItem('token')? <Link  onClick={handleLogOut}> 
-           <div className="navsLogout">
-            <i class="fas fa-sign-out-alt navsLogoutIcon"></i>
-            <p className="navsLogoutText">Logout</p>
-          </div>
-          </Link> 
-          :null
-
+            localStorage.getItem('token') ? <Link onClick={handleLogOut}>
+              <div className="navsLogout">
+                <i class="fas fa-sign-out-alt navsLogoutIcon"></i>
+                <p className="navsLogoutText">Logout</p>
+              </div>
+            </Link>
+              : null
           }
-         
-        
         </div>
       </div>
     </div>

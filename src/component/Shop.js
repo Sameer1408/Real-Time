@@ -6,9 +6,7 @@ import {
 import { useHistory } from 'react-router';
 
 function Shop(props) {
-
-
-   
+ 
     let history = useHistory();
     const handleClick = () => {
         if(localStorage.getItem('token')){
@@ -50,8 +48,6 @@ function Shop(props) {
        setdistance(d)
     }
 
-
-    
     return (
         <div className="child shop">
 
@@ -60,7 +56,7 @@ function Shop(props) {
                 <div className="card-body">
                     <h5 className="card-title">{props.shop.title}</h5>
                     <button type="button" onClick={handleClick} class="btn btn-outline-dark">Shop now</button>
-                    {distance<100?<p className="distanceAway"><i class="fas fa-street-view"></i> {String(distance).slice(0,3)} Kms away</p>:null}
+                    {distance<10000?<p className="distanceAway"><i class="fas fa-street-view"></i> {String(distance).slice(0,3)} Kms away</p>:null}
                 </div>
             </div>
             {/* <img src={props.shop.image.url} className="shopImage"/> */}

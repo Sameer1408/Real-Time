@@ -101,11 +101,6 @@ function Testing(props) {
   }
 
   const handleReviewClick = async () => {
-    // console.log(rating)
-    // console.log(id);
-    // console.log(name);
-    // console.log(comment);
-    // console.log(rating)
     if (name !== '' && comment !== '') {
       const response = await fetch(`https://salty-inlet-39033.herokuapp.com/api/product/addReview`, {
         method: 'POST',
@@ -227,10 +222,10 @@ function Testing(props) {
       {cartItems.length==0?null:
       <>
       <div className="popDivCart" style={{ display: `${pop}` }}>
-      <p>Relpace items already in cart</p>
-      <p>Your cart contains drinks from {cartItems[0].shop} Shop.Do you want to discard the secetion and add drinks from {productsShop} Shop </p>
-      <button onClick={onClickYes}>yes</button>
-      <button onClick={onClickNo}>no</button>
+      <p className="ReplaceHeading">Relpace items already in cart</p>
+      <p className="ReplacePara">Your cart contains drinks from {cartItems[0].shop} Shop.Do you want to discard the secetion and add drinks from {productsShop} Shop </p>
+      <button className="btn btn-outline-dark" style={{marginRight:'10px'}} onClick={onClickYes}>yes</button>
+      <button className="btn btn-outline-dark" onClick={onClickNo}>no</button>
       </div>
       </>
       }

@@ -29,7 +29,6 @@ function PlaceOrderScreen() {
             totalAmount:totalAmount
        }) 
     )    
-
      // history.push('/profile')
     }
     

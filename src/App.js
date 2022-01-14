@@ -1,10 +1,12 @@
 import './App.css';
-import React, { useState } from 'react';
+import React, { useState,} from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
+import MessengerCustomerChat from 'react-messenger-customer-chat';
+
 
 import Home from './screens/Home';
 import UnderOrAboveAge from './component/UnderOrAboveAge';
@@ -33,7 +35,7 @@ import AdminPage from './screens/AdminPage';
 import OdersShop from './component/OdersShop';
 import OrderStatus from './component/OrderStatus';
 import OrdersShopManisha from './component/OrdersShopManisha';
-
+import scrollImage from './images/scroll.png'
 
 function App() {
   const [alert, setAlert] = useState(null)
@@ -47,7 +49,12 @@ function App() {
     }, 1500)
   }
 
+    
+  const scrollUp=()=>{
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
 
+  
 
 
   return (
@@ -66,6 +73,15 @@ function App() {
             <Route exact path="/orderStatus/:status">
               <OrderStatus />
             </Route>
+            {/* <Route exact path="/orderStatus/Confirmed">
+              <OrderStatus />
+            </Route>
+            <Route exact path="/orderStatus/Dispatched">
+              <OrderStatus />
+            </Route>
+            <Route exact path="/orderStatus/Confirmed">
+              <OrderStatus />
+            </Route> */}
             <Route exact path="/ordersshopchunabhatti">
               <OdersShop />
             </Route>
@@ -124,6 +140,12 @@ function App() {
               <SignUp />
             </Route>
           </Switch>
+          <img className="scrollup" src={scrollImage} onClick={scrollUp}/> 
+          <MessengerCustomerChat
+            pageId="107021984625400"
+            appId="364560045336738"
+            htmlRef="<REF_STRING>"
+          />
           <Footer />
         </Router>
       </ShopState>

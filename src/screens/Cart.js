@@ -23,7 +23,7 @@ function Cart() {
         if (id) {
             dispatch(addToCart(id, qty, price, shop))
         }
-        
+        window.scrollTo(0, 0)
     }, [dispatch, id, qty, price]);
 
     const history = useHistory();
@@ -40,6 +40,7 @@ function Cart() {
         <>
             <div className="container" style={{ position: "relative", top: "100px" }}>
                 <h1 className="ShopingCartHeading">Shopping Cart</h1>
+                <button className="btn checkOutBtn" onClick={handleCheckoutClick} style={{marginTop:'-70px'}} >Checkout</button>
             <hr className="ShopingCartHeading_underLine"/>
                 <div className="cartSections">
                     <h3 className="cart_product cart_top">Product</h3>

@@ -12,7 +12,6 @@ function Products(props) {
     const dispatch = useDispatch()
     const productList = useSelector(state => state.productList)
 
-
     const shopName = useParams().shopName;
     const [searchTerm, setSearchTerm] = useState('')
     const [category, setCategory] = useState('All Product')
@@ -25,7 +24,6 @@ function Products(props) {
     let { loading, error, products } = productList;
 
   
-
     const filterItem = (cate) => {
         if (cate !== '') {
             setCategory(cate)

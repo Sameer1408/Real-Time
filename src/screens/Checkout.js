@@ -3,13 +3,20 @@ import { useDispatch, useSelector } from 'react-redux';
 import CheckoutCartItems from '../component/CheckoutCartItems';
 import { useHistory } from 'react-router';
 
-
 function Checkout(props) {
-  
   useLayoutEffect(() => {
     getUser();
     window.scrollTo(0, 0)
   }, []);
+
+  const [pop, setpop] = useState(false)
+  
+  const popOpen=()=>{
+    setpop(true)
+  }
+  const popClose=()=>{
+    setpop(false)
+  }
 
   const [person, setPerson] = useState({})
   const getUser = async () => {
@@ -159,9 +166,6 @@ function Checkout(props) {
        window.location.reload();
   }
 
-  
-
-
   return (
     <div className="container" style={{ position: 'relative', top: '90px', marginBottom: "20px" }}>
       <h1 className="checkoutHeading">Checkout</h1>
@@ -254,8 +258,19 @@ function Checkout(props) {
           </div>
         </div>
       </div>
-      <button className="btn btn-outline-primary" style={{ width: "50%" }} onClick={handleSubmit}>Order Now</button>
-      <div style={{ height: "80px" }}></div>
+      <button className="btn btn-outline-primary orderNowBtn"  onClick={popOpen}>Order Now</button>
+      {
+        pop?
+      <div className="paymentMethodPop">
+
+        <button onClick={handleSubmit}>Online Pay</button>
+        <button>Cash on Delivery</button>
+        <button>Get From Shop</button>
+        {/* <button>Get From Shop<button> */}
+
+      <p onClick={popClose} className=""><i class="fas fa-times cross"></i></p>
+      </div>:null
+      }
     </div>
   )
 }
