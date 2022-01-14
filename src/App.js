@@ -36,6 +36,7 @@ import OdersShop from './component/OdersShop';
 import OrderStatus from './component/OrderStatus';
 import OrdersShopManisha from './component/OrdersShopManisha';
 import scrollImage from './images/scroll.png'
+import ShopsWithProduct from './screens/ShopsWithProduct';
 
 function App() {
   const [alert, setAlert] = useState(null)
@@ -54,9 +55,6 @@ function App() {
     window.scrollTo({top: 0, behavior: 'smooth'});
   }
 
-  
-
-
   return (
     <>
       <ShopState>
@@ -68,7 +66,10 @@ function App() {
               <UnderOrAboveAge showAlret={showAlret} />
             </Route>
             <Route exact path="/home">
-              <Home />
+            <ShopsWithProduct />
+            </Route>
+            <Route exact path="/shopswithProducts">
+              <ShopsWithProduct />
             </Route>
             <Route exact path="/orderStatus/:status">
               <OrderStatus />
@@ -152,5 +153,4 @@ function App() {
     </>
   );
 }
-
 export default App;

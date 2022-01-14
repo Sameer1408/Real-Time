@@ -35,9 +35,9 @@ function Shop(props) {
     const [distance, setdistance] = useState(0)
 
     function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
-        var R = 6371; // Radius of the earth in km
         var dLat = deg2rad(lat2 - lat1);  // deg2rad below
         var dLon = deg2rad(lon2 - lon1);
+        var R = 6371; // Radius of the earth in km
         var a =
             Math.sin(dLat / 2) * Math.sin(dLat / 2) +
             Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
@@ -56,7 +56,7 @@ function Shop(props) {
                 <div className="card-body">
                     <h5 className="card-title">{props.shop.title}</h5>
                     <button type="button" onClick={handleClick} class="btn btn-outline-dark">Shop now</button>
-                    {distance<10000?<p className="distanceAway"><i class="fas fa-street-view"></i> {String(distance).slice(0,3)} Kms away</p>:null}
+                    {distance<100?<p className="distanceAway"><i class="fas fa-street-view"></i> {String(distance).slice(0,3)} Kms away</p>:null}
                 </div>
             </div>
             {/* <img src={props.shop.image.url} className="shopImage"/> */}
