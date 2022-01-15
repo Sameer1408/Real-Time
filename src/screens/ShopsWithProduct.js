@@ -92,7 +92,7 @@ function ShopsWithProduct() {
             setCategory(cate)
         }
         else if (cate === '') {
-            setCategory("All Product")
+            setCategory("All Drinks")
         }
         dispatch(FilterProductList(cate, shop))
     }
@@ -122,10 +122,14 @@ function ShopsWithProduct() {
                                 <div className="item">  <button className="categoryButton btn btn-outline-dark" onClick={() => filterItem('Rum')}>Rum</button></div>
                             </div>
             </div>     
-
+          
             {
                 loading ? <h1>Product Loading</h1> :
                     <>
+                    <h1 className="allProductWithCategoryHeadingFront">
+                    {category}s
+                </h1>
+
                         {products.length == 0 ? shop
                             :
                             <div className="parent products row my-2" style={{ width: "100%", }}>

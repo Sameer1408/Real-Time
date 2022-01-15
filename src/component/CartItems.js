@@ -7,8 +7,8 @@ function CartItems(props) {
 
 const dispatch = useDispatch();
 
-const removeFromCartHandler=(id)=>{
-    dispatch(removeFromCart(id));    
+const removeFromCartHandler=(id,price)=>{
+    dispatch(removeFromCart(id,price));    
 }
 
 return (
@@ -22,7 +22,7 @@ return (
             <div className="col-sm-3 cartItemsProductNameDiv"> <p className="cartItems_heading cartItem" > {props.e.name} </p></div>
             <div className="col-sm-3 cartItemsProductQtyDiv"><p className="cartItems_qty cartItem"> {props.e.quantity}</p></div>
             <div className="col-sm-3 cartItemsProductPriceDiv"><p className="cartItems_price cartItem">Rs {props.e.price}</p></div>
-            <div className="col-sm-3 cartItemsProductButtonDiv"> <button className="btn btn-outline-danger btn-sm cartItem cartItemBtn" onClick={()=>removeFromCartHandler(props.e.product)}><i class="fas fa-times"></i></button></div>
+            <div className="col-sm-3 cartItemsProductButtonDiv"> <button className="btn btn-outline-danger btn-sm cartItem cartItemBtn" onClick={()=>removeFromCartHandler(props.e.product,props.e.price)}><i class="fas fa-times"></i></button></div>
         </div>      
               
         </div>

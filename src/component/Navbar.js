@@ -114,7 +114,7 @@ function Navbar(props) {
           <Link to="/home" onClick={closePop}>
             <div className="navsHome">
               <i class="fas fa-store navsHomeIcon"></i>
-              <p className="navsHomeText">Shops</p></div>
+              <p className="navsHomeText">Home</p></div>
           </Link>
           <div className="navsContact">
             <i class="far fa-comment-dots navsContactIcon"></i>

@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState,} from 'react';
+import React, { useState, } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -50,9 +50,9 @@ function App() {
     }, 1500)
   }
 
-    
-  const scrollUp=()=>{
-    window.scrollTo({top: 0, behavior: 'smooth'});
+
+  const scrollUp = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   return (
@@ -66,7 +66,7 @@ function App() {
               <UnderOrAboveAge showAlret={showAlret} />
             </Route>
             <Route exact path="/home">
-            <ShopsWithProduct />
+              <ShopsWithProduct />
             </Route>
             <Route exact path="/shopswithProducts">
               <ShopsWithProduct />
@@ -141,12 +141,13 @@ function App() {
               <SignUp />
             </Route>
           </Switch>
-          <img className="scrollup" src={scrollImage} onClick={scrollUp}/> 
+          <img className="scrollup" src={scrollImage} onClick={scrollUp} />
           <MessengerCustomerChat
             pageId="107021984625400"
             appId="364560045336738"
             htmlRef="<REF_STRING>"
           />
+          <a href="https://wa.me/917489148585" class="whatsapp_float" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
           <Footer />
         </Router>
       </ShopState>
