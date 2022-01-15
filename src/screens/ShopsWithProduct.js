@@ -51,6 +51,7 @@ function ShopsWithProduct() {
             const min = AllDistances.indexOf(Math.min(...AllDistances))
             console.log(min)
             setShop(shops[min].title)
+            localStorage.setItem('shop',shops[min].title)
             dispatch(ListProducts(shops[min].title));
 
         }
